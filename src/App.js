@@ -110,7 +110,7 @@ function App() {
         <Route path="/busqueda" element={<main><Busqueda loading={loading} fail={fail} inventario={inventario} /></main>} />
         <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} />} />
         {inventario.map((articulo, index) => {
-          return <Route key={index} path={`/merch/${articulo.id}`} element={<main><Articulo articulo={articulo} carrito={carrito} setCarrito={setCarrito} tipo="single" imagen={articulo.image} nombre={articulo.title} precio={articulo.price} descripcion={articulo.description} /> <Sugerencias /></main>} />
+          return <Route key={index} path={`/merch/${articulo.id}`} element={<main><Articulo articulo={articulo} id={articulo.id} carrito={carrito} setCarrito={setCarrito} tipo="single" imagen={articulo.image} nombre={articulo.title} precio={articulo.price} descripcion={articulo.description} /> <Sugerencias /></main>} />
         })}
 
       </Routes>

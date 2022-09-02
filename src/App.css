@@ -732,10 +732,27 @@ color: #9a3c98;
 
 .cartProduct__title{
   display: flex;
+  justify-content: space-between;
 }
 
 .cartProduct__quantity{
+  display: flex;
+  align-items: center;
   justify-self: center;
+  border: 2px solid #9a3c98;
+  padding: 0px 10px;
+}
+
+.cartProduct__quantity-title{
+  padding: 0px 10px ;
+  width: 40px;
+  text-align: center;
+}
+
+.cartProduct__quantity-mod{
+  font-family: 'Louis Bold', sans-serif;
+  font-size: 30px;
+  padding-bottom: 7px;
 }
 
 .cartProduct__price{
@@ -1144,7 +1161,7 @@ section{
 
   .cartProduct__title-delete-img{
     margin-left: 0px;
-    margin-top: 10px;
+    margin-top: 20px;
   }
   
   /* ORDER */
