@@ -701,6 +701,7 @@ color: #9a3c98;
 .suggest__title{
   text-align: center;
   margin-bottom: 60px;
+  line-height: 40px;
 }
 
 /* CART */
@@ -724,7 +725,8 @@ color: #9a3c98;
   margin-bottom: 45px;
 }
 
-.cartProduct__img{
+.cartProduct__img,
+.cartProduct__link{
   object-fit: contain;
   justify-self: center;
   max-width: 125px;
@@ -788,6 +790,7 @@ color: #9a3c98;
 
 .cart__empty-title{
   text-align: center;
+  line-height: 40px;
 }
 
 .cartProduct__title-delete-img{
@@ -1134,7 +1137,6 @@ section{
 
   .suggest__title{
     padding: 0px 40px;
-    line-height: 40px;
   }
 
   /* CARRITO */

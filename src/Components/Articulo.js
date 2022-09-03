@@ -2,7 +2,12 @@ import { Link } from 'react-router-dom'
 import papelera from "../images/papelera.png"
 
 
+
 function Articulo(props) {
+
+  function exist(id){
+    return props.carrito.findIndex(producto => producto.id === id)
+  }
 
   if (props.tipo === "catalog") {
     return (
@@ -25,7 +30,13 @@ function Articulo(props) {
           <h5 className="singleProduct__titles-price">{props.precio}€</h5>
           <hr className="singleProduct__divider" />
           <p className="singleProduct__p">{props.descripcion}</p>
-          <button onClick={() => { props.setCarrito([...props.carrito, { id: props.id, imagen: props.imagen, nombre: props.nombre, precio: props.precio, cantidad: 1 }]) }} className="button">Añadir al carrito</button>
+          <button onClick={() => {
+              if(exist(props.id)!==-1){
+                props.carrito[exist(props.id)].cantidad += 1
+              } else{
+                props.setCarrito([...props.carrito, { id: props.id, imagen: props.imagen, nombre: props.nombre, precio: props.precio, cantidad: 1 }])
+              }
+          }} className="button">Añadir al carrito</button>
         </div>
       </section>
     )
@@ -33,9 +44,9 @@ function Articulo(props) {
 
     return (
       <div className="cartProduct">
-        <img className="cartProduct__img" src={props.imagen} alt={props.nombre} />
+        <Link className="cartProduct__link" to={`/merch/${props.id}`}><img className="cartProduct__img" src={props.imagen} alt={props.nombre} /></Link>
         <div className="cartProduct__title">
-          <h4 className="cartProduct__title-name">{props.nombre}</h4>
+          <Link className="cartProduct__title-link" to={`/merch/${props.id}`}><h4 className="cartProduct__title-name">{props.nombre}</h4></Link>
           <button className="cartProduct__title-delete" onClick={() => { props.deleteCart(props.id) }}><img className="cartProduct__title-delete-img" src={papelera} alt="Quitar" /></button>
         </div>
         <div className="cartProduct__quantity">
